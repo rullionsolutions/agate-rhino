@@ -172,7 +172,7 @@ x.sections.home_page_section_sy.render = function (element, render_opts) {
     } finally {
         SQL.Connection.shared.finishedWithResultSet(resultset);
     }
-    this.renderLinkOrText(this.sctn_elem.addChild("p"), "?page_id=sy_home", msg, null, msg);
+    this.renderLinkOrText(this.sctn_elem.addChild("p"), "#page_id=sy_home", msg, null, msg);
 };
 
 module.exports.sections.add({ id: "sy", type: "home_page_section_sy" });
