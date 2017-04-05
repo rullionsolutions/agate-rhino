@@ -179,13 +179,15 @@ module.exports.define("start", function () {
         return;
     }
     try {
+        Rhino.app.app_server = this.getAppServerID();
+        Rhino.app.db_server = this.getDBServerID();
         Rhino.app.runtime_row = this.cloneAutoIncrement({
             monitor: 0,
         }, {
             app_id: Rhino.app.app_id,
             start_dttm: "now",
-            app_server: this.getAppServerID(),
-            db_server: this.getDBServerID(),
+            app_server: Rhino.app.app_server,
+            db_server: Rhino.app.db_server,
             server_ident: Rhino.app.server_ident,
             saph_version: (Rhino.app.version || " - ") + "." + (Rhino.app.patch || " - "),
             emerald_patch: Rhino.app.emerald_patch || "",
