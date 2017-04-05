@@ -24,7 +24,33 @@ module.exports = Data.Entity.clone({
 
 module.exports.addFields([
     { id: "id"          , label: "Id"               , type: "Number"   , editable: false, list_column: true, search_criterion: true, decimal_digits: 0, auto_generate: true, },
-    { id: "server_ident", label: "Server Ident"     , type: "Text"     , editable: false, list_column: true, search_criterion: true, data_length: 255 },
+    {
+        id: "server_ident",
+        label: "Server Ident",
+        type: "Text",
+        editable: false,
+        list_column: true,
+        search_criterion: true,
+        data_length: 255,
+    },
+    {
+        id: "app_server",
+        label: "App Server",
+        type: "Text",
+        editable: false,
+        list_column: false,
+        search_criterion: true,
+        data_length: 255
+    },
+    {
+        id: "db_server",
+        label: "DB Server",
+        type: "Text",
+        editable: false,
+        list_column: false,
+        search_criterion: true,
+        data_length: 255
+    },
     { id: "saph_version", label: "Sapphire Version" , type: "Text"     , editable: false, list_column: true, search_criterion: true, data_length: 20 },
     {
         id: "emerald_patch",
@@ -105,6 +131,49 @@ module.exports.define("getCommitHash", function (path) {
 });
 
 
+module.exports.define("getAppServerID", function () {
+    var resultset;
+    var app_server_id;
+    try {
+        resultset = SQL.Connection.shared.executeQuery(
+            "SELECT host FROM information_schema.processlist WHERE ID=CONNECTION_ID()"
+        );
+        while (resultset.next()) {
+            app_server_id = SQL.Connection.getColumnString(resultset, 1);
+            if (app_server_id) {
+                app_server_id = app_server_id
+                    .replace(".recruitment.rul", "") // remove
+                    .replace(/:.*$/, ""); // remove the port number
+            }
+        }
+    } catch (e) {
+        this.report(e);
+    } finally {
+        SQL.Connection.shared.finishedWithResultSet(resultset);
+    }
+    return app_server_id;
+});
+
+
+module.exports.define("getDBServerID", function () {
+    var resultset;
+    var DB_server_id;
+    try {
+        resultset = SQL.Connection.shared.executeQuery(
+            "SELECT @@hostname"
+        );
+        while (resultset.next()) {
+            DB_server_id = SQL.Connection.getColumnString(resultset, 1);
+        }
+    } catch (e) {
+        this.report(e);
+    } finally {
+        SQL.Connection.shared.finishedWithResultSet(resultset);
+    }
+    return DB_server_id;
+});
+
+
 module.exports.define("start", function () {
     if (!SQL.Connection.database_exists) {
         return;
@@ -115,6 +184,8 @@ module.exports.define("start", function () {
         }, {
             app_id: Rhino.app.app_id,
             start_dttm: "now",
+            app_server: this.getAppServerID(),
+            db_server: this.getDBServerID(),
             server_ident: Rhino.app.server_ident,
             saph_version: (Rhino.app.version || " - ") + "." + (Rhino.app.patch || " - "),
             emerald_patch: Rhino.app.emerald_patch || "",
