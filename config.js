@@ -2,6 +2,9 @@
 
 var Data = require("lazuli-data/index.js");
 var Access = require("lazuli-access/index.js");
+var SQL = require("lazuli-sql/index.js");
+var IO = require("lazuli-io/index.js");
+var Rhino = require("lazuli-rhino/index.js");
 var menu2;
 var menu3;
 
@@ -40,3 +43,12 @@ menu3.addChild({ page: "sy_workflow_list" });
 menu3.addChild({ page: "sy_user_type_search" });
 
 menu3.addChild({ page: "sy_runtime_search" });
+
+
+Rhino.App.defbind("rhino_loadData", "build", function () {
+    // prevent subsequent sessions from referencing non-existent sy_runtime record
+    Rhino.app.runtime_row = null;
+    Rhino.app.execMySQLFile(IO.File.getModulePath(module) + "/base_db.sql");
+    SQL.Connection.shared.loadSQLFile(IO.File.getModulePath(module) + "/migration/build.sql");
+    SQL.Connection.shared.loadSQLFile(IO.File.getModulePath(module) + "/runtime/build.sql");
+});

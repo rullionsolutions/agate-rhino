@@ -1,7 +1,7 @@
 "use strict";
 
 
-require("agate-rhino/sy_config.js");
+require("agate-rhino/config.js");
 require("agate-rhino/sy_home.js");
 require("agate-rhino/home.js");
 require("agate-rhino/guest_home.js");
