@@ -128,7 +128,7 @@ module.exports.sections.add({
     title    : "System",
     text     : "Core system administration - DANGER!",
     glyphicon: "icon-cog",
-    section_heading_url: "?page_id=sy_home"
+    section_heading_page_id: "sy_home"
 });
 
 module.exports.sections.get("sy").setup = function () {
@@ -142,7 +142,7 @@ module.exports.sections.add({
     title    : "Tasks",
     text     : "Actions assigned to you that require your attention",
     glyphicon: "icon-ok",
-    section_heading_url: "?page_id=ac_wf_tasks"
+    section_heading_page_id: "ac_wf_tasks"
 });
 
 /*
@@ -172,7 +172,7 @@ x.sections.home_page_section_sy.render = function (element, render_opts) {
     } finally {
         SQL.Connection.shared.finishedWithResultSet(resultset);
     }
-    this.renderLinkOrText(this.sctn_elem.addChild("p"), "?page_id=sy_home", msg, null, msg);
+    this.renderLinkOrText(this.sctn_elem.addChild("p"), "#page_id=sy_home", msg, null, msg);
 };
 
 module.exports.sections.add({ id: "sy", type: "home_page_section_sy" });
