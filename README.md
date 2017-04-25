@@ -1,2 +1,2 @@
 # agate-rhino
-Entity and Page objects corresponding to lazuli-rhino
+Persistent Entities for Runtimes, Monitors and Migrations

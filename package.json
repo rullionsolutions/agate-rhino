@@ -1,0 +1,18 @@
+{
+  "name": "agate-rhino",
+  "version": "0.0.1",
+  "description": "Persistent Entities for Runtimes, Monitors and Migrations",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodeunit test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:rullionsolutions/agate-rhino"
+  },
+  "author": "stephen.d.francis@gmail.com",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "lapis-core": ">= 0.0.0"
+  }
+}
