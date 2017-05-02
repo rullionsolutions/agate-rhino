@@ -9,15 +9,15 @@ var Rhino = require("lazuli-rhino/index.js");
 
 
 module.exports = Data.Entity.clone({
-    id              : "sy_runtime",
-    title           : "Runtime",
-    area            : "sy",
-    primary_key     : "id",
-    default_order   : "id,id",
-    title_field     : "start_dttm",
-    transactional   : false,
-    display_page    : true,
-    autocompleter   : true,
+    id: "sy_runtime",
+    title: "Runtime",
+    area: "sy",
+    primary_key: "id",
+    default_order: "id,id",
+    title_field: "start_dttm",
+    transactional: false,
+    display_page: true,
+    autocompleter: true,
     data_volume_oom: 4,
 });
 

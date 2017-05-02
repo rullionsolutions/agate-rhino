@@ -5,9 +5,9 @@ var Data = require("lazuli-data/index.js");
 
 
 module.exports = UI.Page.clone({
-    id              : "sy_home",
-    title           : "System Home",
-    security        : { sysmgr: true }
+    id: "sy_home",
+    title: "System Home",
+    security: { sysmgr: true, },
 });
 
 
@@ -123,10 +123,10 @@ module.exports.defbind("updateAfterSections", "updateAfterSections", function (p
 
 /*
 module.exports.sections.add({
-    id       : "sy",
-    type     : "HomePageSection",
-    title    : "System",
-    text     : "Core system administration - DANGER!",
+    id: "sy",
+    type: "HomePageSection",
+    title: "System",
+    text: "Core system administration - DANGER!",
     glyphicon: "icon-cog",
     section_heading_page_id: "sy_home"
 });
@@ -137,12 +137,12 @@ module.exports.sections.get("sy").setup = function () {
 */
 
 module.exports.sections.add({
-    id       : "tasks",
-    type     : "HomePageSection",
-    title    : "Tasks",
-    text     : "Actions assigned to you that require your attention",
+    id: "tasks",
+    type: "HomePageSection",
+    title: "Tasks",
+    text: "Actions assigned to you that require your attention",
     glyphicon: "icon-ok",
-    section_heading_page_id: "ac_wf_tasks"
+    section_heading_page_id: "ac_wf_tasks",
 });
 
 /*

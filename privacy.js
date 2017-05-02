@@ -5,15 +5,14 @@ var Rhino = require("lazuli-rhino/index.js");
 
 
 module.exports = UI.Page.clone({
-    id              : "privacy",
-    title           : "Accessibility, Data Privacy and Cookie Usage",
-    security        : { all: true },
-    skin            : "guest.html"
+    id: "privacy",
+    title: "Accessibility, Data Privacy and Cookie Usage",
+    security: { all: true },
+    skin: "guest.html",
 });
 
 
 module.exports.sections.addAll([
-
     { id: "accessibility", type: "Section", title: "Accessibility",
         text: "This myRecruiter application has been developed in accordance with the WCAG 2.0 guidelines " +
             "of the WAI (Web Accessibility Initiative), and, where possible, it conforms to Level A requirements.<br/><br/>" +

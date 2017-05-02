@@ -5,13 +5,13 @@ var Rhino = require("lazuli-rhino/index.js");
 
 
 module.exports = Data.Entity.clone({
-    id           : "sy_migration",
-    title        : "System Migration",
-    area         : "sy",
-    title_field  : "title",
-    transactional   : true,
+    id: "sy_migration",
+    title: "System Migration",
+    area: "sy",
+    title_field: "title",
+    transactional: true,
     default_order: "id",
-    primary_key  : "id",
+    primary_key: "id",
     data_volume_oom: 3,
 });
 
@@ -20,10 +20,10 @@ Data.entities.get("sy_migration").addFields([
     { id: "id"       , label: "Id"            , type: "Number", editable: false, auto_generate: true, search_criterion: true },
     { id: "title"    , label: "Title"         , type: "Text"    , mandatory: true , list_column: true },
     { id: "start_dt" , label: "Migration date", type: "Date"    , mandatory: true , list_column: true, default_val: "today" },
-    { id: "status"   , label: "Status"        , type: "Option"  , editable : false, list_column: true, search_criterion: true, list: "sy.migration_status", default_val: "P" },
-    { id: "cases"    , label: "Cases"         , type: "Text"    , editable : false, list_column: true },
-    { id: "sql_files", label: "Sql files"     , type: "Textarea", editable : false },
-    { id: "result"   , label: "Result"        , type: "Textarea", editable : false }
+    { id: "status"   , label: "Status"        , type: "Option"  , editable: false, list_column: true, search_criterion: true, list: "sy.migration_status", default_val: "P" },
+    { id: "cases"    , label: "Cases"         , type: "Text"    , editable: false, list_column: true },
+    { id: "sql_files", label: "Sql files"     , type: "Textarea", editable: false },
+    { id: "result"   , label: "Result"        , type: "Textarea", editable: false }
 ]);
 
 

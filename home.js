@@ -4,9 +4,9 @@ var UI = require("lazuli-ui/index.js");
 
 
 module.exports = UI.Page.clone({
-    id              : "home",
-    title           : "Home",
-    security        : { all: true }
+    id: "home",
+    title: "Home",
+    security: { all: true, },
 });
 
 

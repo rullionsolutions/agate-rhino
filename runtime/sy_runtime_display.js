@@ -4,10 +4,10 @@ var UI = require("lazuli-ui/index.js");
 
 
 module.exports = UI.Page.clone({
-    id              : "sy_runtime_display",
-    entity_id       : "sy_runtime",
-    title           : "Runtime",
-    requires_key    : true
+    id: "sy_runtime_display",
+    entity_id: "sy_runtime",
+    title: "Runtime",
+    requires_key: true,
 });
 
 

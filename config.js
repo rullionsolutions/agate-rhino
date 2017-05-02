@@ -9,13 +9,13 @@ var menu2;
 var menu3;
 
 module.exports = Data.Area.clone({
-    id              : "sy",
-    title           : "System",
-    dependencies    : [],
-    glyphicon       : "icon-cog",
-    security        : { sysmgr: true },
-    text_strings    : {},
-    params          : {}
+    id: "sy",
+    title: "System",
+    dependencies: [],
+    glyphicon: "icon-cog",
+    security: { sysmgr: true },
+    text_strings: {},
+    params: {},
 });
 
 

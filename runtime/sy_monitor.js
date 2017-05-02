@@ -9,15 +9,15 @@ var Rhino = require("lazuli-rhino/index.js");
 
 
 module.exports = Data.Entity.clone({
-    id              : "sy_monitor",
-    title           : "Monitor",
-    area            : "sy",
-    primary_key     : "runtime,id",
-    default_order   : "runtime,id",
-    title_field     : "start_dttm",
-    transactional   : false,
+    id: "sy_monitor",
+    title: "Monitor",
+    area: "sy",
+    primary_key: "runtime,id",
+    default_order: "runtime,id",
+    title_field: "start_dttm",
+    transactional: false,
     data_volume_oom: 5,
-   // record_interval : (10 * 60 * 1000)       // min interval between records in ms
+   // record_interval: (10 * 60 * 1000)       // min interval between records in ms
 });
 
 
@@ -37,9 +37,9 @@ module.exports.define("indexes", [ "runtime" ]);
 //  Runtime.getRuntime().totalMemory()
 
 module.exports.define("recordAtInterval", Rhino.AsyncJob.clone({
-    id          : "recordAtInterval",
-    monitor_id  : 1
-    // interval    : 1000 * 60 * 5        // 5 minutes
+    id: "recordAtInterval",
+    monitor_id: 1
+    // interval: 1000 * 60 * 5        // 5 minutes
 }));
 
 

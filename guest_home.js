@@ -4,10 +4,10 @@ var UI = require("lazuli-ui/index.js");
 
 
 module.exports = UI.Page.clone({
-    id              : "guest_home",
-    title           : "Guest Home",
-    security        : { all: false, guest: true },
-    skin            : "guest.html"
+    id: "guest_home",
+    title: "Guest Home",
+    security: { all: false, guest: true },
+    skin: "guest.html",
 });
 
 

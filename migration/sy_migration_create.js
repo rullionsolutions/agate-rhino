@@ -5,9 +5,9 @@ var UI = require("lazuli-ui/index.js");
 
 module.exports = UI.Page.clone({
     id: "sy_migration_create",
-    entity_id       : "sy_migration",
+    entity_id: "sy_migration",
     title: "Migration Create",
-    transactional: true
+    transactional: true,
 });
 
 
