@@ -175,10 +175,13 @@ module.exports.define("getDBServerID", function () {
 
 
 module.exports.define("start", function () {
-    if (!SQL.Connection.database_exists) {
-        return;
-    }
     try {
+        // first attempt to hit a table in the database - check it's there...
+        SQL.Connection.shared.executeQuery("SELECT 1 FROM sy_runtime", null, function (e) {});
+        if (!SQL.Connection.database_exists) {
+            return;
+        }
+
         Rhino.app.app_server = this.getAppServerID();
         Rhino.app.db_server = this.getDBServerID();
         Rhino.app.runtime_row = this.cloneAutoIncrement({
