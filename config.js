@@ -14,7 +14,6 @@ module.exports = Data.Area.clone({
     dependencies: [],
     glyphicon: "icon-cog",
     security: { sysmgr: true },
-    text_strings: {},
     params: {},
 });
 
