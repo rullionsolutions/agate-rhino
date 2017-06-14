@@ -29,8 +29,9 @@ menu2 = Access.MenuItem.addChild({
 menu3 = menu2;
 menu2.addChild({ page: "sy_home" });
 
-menu3.addChild({ page: "apidocs" });
+// menu3.addChild({ page: "apidocs" });
 menu3.addChild({ page: "sy_load_ulf" });
+menu3.addChild({ page: "sy_security_report" });
 
 // menu.addChild({ label: "Console", url: "jsp/console.jsp" });
 
