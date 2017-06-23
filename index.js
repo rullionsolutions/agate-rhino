@@ -6,6 +6,7 @@ require("agate-rhino/sy_home.js");
 require("agate-rhino/home.js");
 require("agate-rhino/guest_home.js");
 require("agate-rhino/privacy.js");
+require("agate-rhino/sy_security_report.js");
 
 require("agate-rhino/runtime/sy_number.js");
 require("agate-rhino/runtime/sy_number_search.js");
