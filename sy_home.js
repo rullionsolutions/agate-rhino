@@ -39,7 +39,7 @@ module.exports.sections.addAll([
             }
         ]
     },
-    { id: "params"    , type: "FormParams", tab: "overv", title: "Period", columns: 2, layout: "multi-column" },
+    { id: "params"    , type: "FormParams", tab: "overv", title: "Period", layout: "flexbox" },
 
     { id: "pswd_resets" , type: "ListQuery" , tab: "audit", entity: "ac_tx"          , title: "Password Resets" },
     { id: "pswd_unlocks", type: "ListQuery" , tab: "audit", entity: "ac_tx"          , title: "Password Unlocks" },
@@ -61,11 +61,11 @@ module.exports.defbind("setupEnd", "setupEnd", function () {
     this.sections.get("in_prog_txs"  ).columns.get("commit_point" ).visible = false;
     this.sections.get("in_prog_txs"  ).columns.get("start_point"  ).visible = true;
 
-    this.sections.get("overdue_tasks").query.addCondition({ column: "A.status"  , operator: "=", value: "A" });        // active
-    this.sections.get("overdue_tasks").query.addCondition({ column: "A.due_date", operator: "<=", value: Data.Date.parse("now+-1") });
-    this.sections.get("overdue_tasks").columns.get("id"          ).visible = false;
-    this.sections.get("overdue_tasks").columns.get("status"      ).visible = false;
-    this.sections.get("overdue_tasks").columns.get("due_date"    ).visible = true;
+    // this.sections.get("overdue_tasks").query.addCondition({ column: "A.status"  , operator: "=", value: "A" });        // active
+    // this.sections.get("overdue_tasks").query.addCondition({ column: "A.due_date", operator: "<=", value: Data.Date.parse("now+-1") });
+    // this.sections.get("overdue_tasks").columns.get("id"          ).visible = false;
+    // this.sections.get("overdue_tasks").columns.get("status"      ).visible = false;
+    // this.sections.get("overdue_tasks").columns.get("due_date"    ).visible = true;
 
     fieldset = this.sections.get("params").fieldset;
     fieldset.addFields([
@@ -136,14 +136,6 @@ module.exports.sections.get("sy").setup = function () {
 };
 */
 
-module.exports.sections.add({
-    id: "tasks",
-    type: "HomePageSection",
-    title: "Tasks",
-    text: "Actions assigned to you that require your attention",
-    glyphicon: "icon-ok",
-    section_heading_page_id: "ac_wf_tasks",
-});
 
 /*
 x.sections.home_page_section_sy.render = function (element, render_opts) {
